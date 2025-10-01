@@ -11,16 +11,17 @@
   <style>
     :root{ --primary-navy:#093456; --accent-red:#AF2E29; --bg-offwhite:#FFFCF8; --text-offblack:#1A1A1A; --bluegray:#ADBBC0; }
 
-    /* Force consistent scrollbar reservation on desktop */
-    html{ overflow-y: scroll; }
+    /* === Copy of index nav behavior === */
+    nav{ position:sticky; top:0; z-index:50; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.08); }
+    .nav-link{ color:#374151; }
+    .nav-link:hover{ color:var(--primary-navy); }
 
-    /* Match index: gradient + faint diagonal stripes */
-    body{ background:linear-gradient(160deg,#05243d 0%,#093456 50%,#0b426f 100%); color:#fff; position:relative; overflow-x:hidden; }
+    /* Keep scrollbar reserved to prevent 1–2px desktop centering drift */
+    html{ overflow-y:scroll; }
+
+    /* 404 background (hero-style stripes) */
+    body{ color:#fff; background:linear-gradient(160deg,#05243d 0%,#093456 50%,#0b426f 100%); position:relative; overflow-x:hidden; }
     body::before{ content:""; position:absolute; inset:0; background-image:linear-gradient(45deg,rgba(255,255,255,0.011) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.011) 50%,rgba(255,255,255,0.011) 75%,transparent 75%,transparent); background-size:30px 30px; pointer-events:none; }
-
-    /* Safe-area aware horizontal padding for iOS notch */
-    .safe-px{ padding-left: calc(1rem + env(safe-area-inset-left)); padding-right: calc(1rem + env(safe-area-inset-right)); }
-    @media (min-width:640px){ .safe-px{ padding-left: calc(1.5rem + env(safe-area-inset-left)); padding-right: calc(1.5rem + env(safe-area-inset-right)); } }
 
     .card{ background:#fff; color:var(--text-offblack); position:relative; z-index:1; }
     .btn-primary{ background:var(--accent-red); color:#fff; }
@@ -29,29 +30,30 @@
     .btn-ghost:hover{ background:var(--primary-navy); color:#fff; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col">
-  <!-- HEADER: identical structure to index; logo height pinned to pixels to avoid cascade drift -->
-  <header class="bg-white text-[#1A1A1A]">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <nav class="flex h-16 sm:h-20 items-center justify-between">
-        <a href="/" class="flex items-center gap-3" aria-label="Gao Tax Solutions home">
-          <img src="/assets/gts-logo-wordmark.svg" alt="Gao Tax Solutions" class="block w-auto h-[52px] sm:h-[56px]" />
-        </a>
-        <div class="hidden md:flex items-center gap-8 text-sm">
-          <a href="/index.html#services" class="hover:opacity-80">Services</a>
-          <a href="/index.html#about" class="hover:opacity-80">About</a>
-          <a href="/index.html#contact" class="hover:opacity-80">Contact</a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-[color:var(--primary-navy)]"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
-        <div class="md:hidden flex items-center">
-          <button type="button" aria-label="Open menu" class="text-[color:var(--primary-navy)]">
-            <i class="fa-solid fa-bars text-xl"></i>
-          </button>
-        </div>
-      </nav>
+<body class="font-sans antialiased min-h-screen flex flex-col">
+  <!-- === NAV: exact copy of index nav (paths adjusted to start at site root) === -->
+  <nav>
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <img src="assets/gts-logo-wordmark.svg" alt="Gao Tax Solutions — Chartered Professional Accountant" class="h-12 md:h-14 w-auto" />
+      <div class="hidden md:flex items-center gap-8 text-sm">
+        <a href="/index.html#services" class="nav-link">Services</a>
+        <a href="/index.html#about" class="nav-link">About</a>
+        <a href="/index.html#contact" class="nav-link">Contact</a>
+        <a href="https://www.linkedin.com/company/gao-tax-solutions/" class="text-[color:var(--primary-navy)] hover:opacity-80" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700" aria-label="Open menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
-    <div class="border-b" style="border-color:#ADBBC0"></div>
-  </header>
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+      <div class="px-6 py-3 space-y-3">
+        <a href="/index.html#services" class="block nav-link">Services</a>
+        <a href="/index.html#about" class="block nav-link">About</a>
+        <a href="/index.html#contact" class="block nav-link">Contact</a>
+        <a href="https://www.linkedin.com/company/gao-tax-solutions/" class="block text-[color:var(--primary-navy)]" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </nav>
 
   <main class="flex-1 flex items-center justify-center px-6 py-12 relative z-10">
     <div class="max-w-3xl w-full text-center">
@@ -70,5 +72,23 @@
       <p class="mt-6 text-xs text-blue-100/80">&copy; 2025 Gao Tax Solutions. All rights reserved.</p>
     </div>
   </main>
+
+  <!-- Minimal script copied from index: mobile menu toggle -->
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', String(!isHidden));
+      });
+      document.querySelectorAll('#mobile-menu a').forEach(link =>
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        })
+      );
+    }
+  </script>
 </body>
 </html>

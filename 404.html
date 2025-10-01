@@ -31,12 +31,27 @@
 </head>
 <body class="min-h-screen flex flex-col">
   <!-- HEADER: identical structure to index; logo height pinned to pixels to avoid cascade drift -->
-  <!-- Header: static copy aligned with index. Using identical structure to avoid runtime fetch side-effects. -->
-<header class="bg-white text-[#1A1A1A]">
-  <div class="mx-auto max-w-7xl px-6">
-    <nav class="flex h-20 items-center justify-between">
-      <a href="/" class="flex items-center gap-3" aria-label="Gao Tax Solutions home">
-        <img src
+  <header class="bg-white text-[#1A1A1A]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <nav class="flex h-20 items-center justify-between">
+        <a href="/" class="flex items-center gap-3" aria-label="Gao Tax Solutions home">
+          <img src="/assets/gts-logo-wordmark.svg" alt="Gao Tax Solutions" class="block w-auto h-[56px]" />
+        </a>
+        <div class="hidden md:flex items-center gap-8 text-sm">
+          <a href="/index.html#services" class="hover:opacity-80">Services</a>
+          <a href="/index.html#about" class="hover:opacity-80">About</a>
+          <a href="/index.html#contact" class="hover:opacity-80">Contact</a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-[color:var(--primary-navy)]"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button type="button" aria-label="Open menu" class="text-[color:var(--primary-navy)]">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+    <div class="border-b" style="border-color:#ADBBC0"></div>
+  </header>
 
   <main class="flex-1 flex items-center justify-center px-6 py-12 relative z-10">
     <div class="max-w-3xl w-full text-center">

@@ -10,15 +10,19 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <style>
     :root{ --primary-navy:#093456; --accent-red:#AF2E29; --bg-offwhite:#FFFCF8; --text-offblack:#1A1A1A; --bluegray:#ADBBC0; }
-    html{ scroll-behavior:smooth; } body{ color:var(--text-offblack); background:var(--bg-offwhite); }
+    html{ scroll-behavior:smooth; }
+    body{ color:var(--text-offblack); background:var(--bg-offwhite); }
     .hero{ background: radial-gradient(1000px 500px at 50% 0%, rgba(255,255,255,.06), rgba(255,255,255,0) 60%), linear-gradient(135deg, #0b426f 0%, var(--primary-navy) 55%, #05243d 100%); }
-    .btn-primary{ background:var(--accent-red); color:#fff; } .btn-primary:hover{ filter:brightness(.95); }
-    .btn-outline{ border:1px solid rgba(255,255,255,.85); color:#fff; } .btn-outline:hover{ background:#fff; color:var(--primary-navy); }
+    .btn-primary{ background:var(--accent-red); color:#fff; }
+    .btn-primary:hover{ filter:brightness(.95); }
+    .btn-outline{ border:1px solid rgba(255,255,255,.85); color:#fff; }
+    .btn-outline:hover{ background:#fff; color:var(--primary-navy); }
     .icon-chip{ background: rgba(9,52,86,0.1); color: var(--primary-navy); }
     nav{ position:sticky; top:0; z-index:50; }
   </style>
 </head>
 <body class="font-sans antialiased">
+  <!-- Nav -->
   <nav class="bg-white shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <img src="assets/gts-logo-wordmark.svg" alt="Gao Tax Solutions — Chartered Professional Accountant" class="h-8 md:h-9 w-auto" />
@@ -27,9 +31,21 @@
         <a href="#about" class="text-gray-700 hover:text-[color:var(--primary-navy)]">About</a>
         <a href="#contact" class="text-gray-700 hover:text-[color:var(--primary-navy)]">Contact</a>
       </div>
+      <!-- Mobile menu button (optional future) -->
+      <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700" aria-label="Open menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#services" class="block text-gray-700">Services</a>
+        <a href="#about" class="block text-gray-700">About</a>
+        <a href="#contact" class="block text-gray-700">Contact</a>
+      </div>
     </div>
   </nav>
 
+  <!-- Hero -->
   <header class="hero text-center text-white py-16 sm:py-24 px-4">
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold">Professional Tax Solutions</h1>
     <p class="mt-4 max-w-3xl mx-auto text-blue-100/90 text-lg md:text-xl">Licensed CPA in Ontario providing T1, T2, and tax planning with a personalized, virtual experience.</p>
@@ -39,6 +55,7 @@
     </div>
   </header>
 
+  <!-- Services -->
   <section id="services" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
@@ -48,42 +65,49 @@
       </div>
       <div class="mt-10 grid gap-8 md:grid-cols-3">
         <div class="relative bg-white p-6 rounded-lg shadow-md">
-          <div class="absolute -top-6 left-6 icon-chip rounded-full p-3"><i class="fas fa-user text-lg"></i></div>
+          <div class="absolute -top-6 left-6 icon-chip rounded-full p-3"><i class="fas fa-user text-lg" aria-hidden="true"></i></div>
           <h3 class="text-lg font-semibold pt-4">Personal Income Tax (T1)</h3>
           <p class="mt-2 text-gray-700">Preparation and filing with strategies to optimize your outcome.</p>
           <ul class="mt-4 list-disc list-inside text-sm text-gray-700 space-y-1">
-            <li>Employment & investment income</li><li>Rental properties</li><li>Self‑employment</li>
+            <li>Employment & investment income</li>
+            <li>Rental properties</li>
+            <li>Self‑employment</li>
           </ul>
         </div>
         <div class="relative bg-white p-6 rounded-lg shadow-md">
-          <div class="absolute -top-6 left-6 icon-chip rounded-full p-3"><i class="fas fa-building text-lg"></i></div>
+          <div class="absolute -top-6 left-6 icon-chip rounded-full p-3"><i class="fas fa-building text-lg" aria-hidden="true"></i></div>
           <h3 class="text-lg font-semibold pt-4">Corporate Income Tax (T2)</h3>
           <p class="mt-2 text-gray-700">Compliance and planning for CCPCs and small businesses.</p>
           <ul class="mt-4 list-disc list-inside text-sm text-gray-700 space-y-1">
-            <li>Small business deduction</li><li>Year‑end planning</li><li>Reorganizations</li>
+            <li>Small business deduction</li>
+            <li>Year‑end planning</li>
+            <li>Reorganizations</li>
           </ul>
         </div>
         <div class="relative bg-white p-6 rounded-lg shadow-md">
-          <div class="absolute -top-6 left-6 icon-chip rounded-full p-3"><i class="fas fa-chart-line text-lg"></i></div>
+          <div class="absolute -top-6 left-6 icon-chip rounded-full p-3"><i class="fas fa-chart-line text-lg" aria-hidden="true"></i></div>
           <h3 class="text-lg font-semibold pt-4">Tax Planning</h3>
           <p class="mt-2 text-gray-700">Proactive advice to minimize tax over time.</p>
           <ul class="mt-4 list-disc list-inside text-sm text-gray-700 space-y-1">
-            <li>Retirement & estate</li><li>Investment strategies</li><li>Income splitting</li>
+            <li>Retirement & estate</li>
+            <li>Investment strategies</li>
+            <li>Income splitting</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- About -->
   <section id="about" class="py-16" style="background:#F6F8FA;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
       <div>
         <h2 class="text-3xl sm:text-4xl font-extrabold">About Gao Tax Solutions</h2>
         <p class="mt-3 text-lg text-gray-700">Founded by a licensed CPA in Ontario, Gao Tax Solutions provides professional, personalized tax services with local insight and national standards.</p>
         <div class="mt-6 space-y-4">
-          <div class="flex items-start"><div class="icon-chip rounded-full p-2"><i class="fas fa-award"></i></div><div class="ml-3"><p class="text-sm font-medium">Licensed CPA in Ontario</p><p class="text-sm text-gray-700">Member in good standing with CPA Ontario</p></div></div>
-          <div class="flex items-start"><div class="icon-chip rounded-full p-2"><i class="fas fa-map-marker-alt"></i></div><div class="ml-3"><p class="text-sm font-medium">Serving the Greater Toronto Area</p><p class="text-sm text-gray-700">Virtual practice with secure communication</p></div></div>
-          <div class="flex items-start"><div class="icon-chip rounded-full p-2"><i class="fas fa-user-tie"></i></div><div class="ml-3"><p class="text-sm font-medium">Personalized Service</p><p class="text-sm text-gray-700">Tailored solutions for your situation</p></div></div>
+          <div class="flex items-start"><div class="icon-chip rounded-full p-2" aria-hidden="true"><i class="fas fa-award"></i></div><div class="ml-3"><p class="text-sm font-medium">Licensed CPA in Ontario</p><p class="text-sm text-gray-700">Member in good standing with CPA Ontario</p></div></div>
+          <div class="flex items-start"><div class="icon-chip rounded-full p-2" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div><div class="ml-3"><p class="text-sm font-medium">Serving the Greater Toronto Area</p><p class="text-sm text-gray-700">Virtual practice with secure communication</p></div></div>
+          <div class="flex items-start"><div class="icon-chip rounded-full p-2" aria-hidden="true"><i class="fas fa-user-tie"></i></div><div class="ml-3"><p class="text-sm font-medium">Personalized Service</p><p class="text-sm text-gray-700">Tailored solutions for your situation</p></div></div>
         </div>
       </div>
       <div class="relative">
@@ -94,13 +118,14 @@
           <div class="relative px-6 py-8 bg-white">
             <h3 class="text-lg font-semibold">Our Approach</h3>
             <p class="mt-2 text-gray-700">We build long‑term relationships through clear advice and exceptional service. We take time to understand your goals and deliver practical, compliant tax solutions.</p>
-            <div class="mt-6"><a href="#contact" class="inline-flex items-center" style="color:var(--primary-navy);"><span>Schedule a consultation</span><i class="fas fa-arrow-right ml-2"></i></a></div>
+            <div class="mt-6"><a href="#contact" class="inline-flex items-center" style="color:var(--primary-navy);"><span>Schedule a consultation</span><i class="fas fa-arrow-right ml-2" aria-hidden="true"></i></a></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center mb-12">
@@ -113,24 +138,49 @@
           <h3 class="text-lg font-semibold">Contact Information</h3>
           <p class="mt-2 text-gray-700">Use the form or reach out directly.</p>
           <div class="mt-6 space-y-6">
-            <div class="flex items-start"><div class="icon-chip rounded-full p-3"><i class="fas fa-envelope"></i></div><div class="ml-4"><p class="text-sm font-medium">Email</p><p class="text-sm text-gray-700"><a href="mailto:info@gaotaxsolutions.ca" class="underline" style="color:var(--primary-navy);">info@gaotaxsolutions.ca</a></p></div></div>
-            <div class="flex items-start"><div class="icon-chip rounded-full p-3"><i class="fas fa-map-marker-alt"></i></div><div class="ml-4"><p class="text-sm font-medium">Location</p><p class="text-sm text-gray-700">Toronto, Ontario</p></div></div>
+            <div class="flex items-start"><div class="icon-chip rounded-full p-3" aria-hidden="true"><i class="fas fa-envelope"></i></div><div class="ml-4"><p class="text-sm font-medium">Email</p><p class="text-sm text-gray-700"><a href="mailto:info@gaotaxsolutions.ca" class="underline" style="color:var(--primary-navy);">info@gaotaxsolutions.ca</a></p></div></div>
+            <div class="flex items-start"><div class="icon-chip rounded-full p-3" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div><div class="ml-4"><p class="text-sm font-medium">Location</p><p class="text-sm text-gray-700">Toronto, Ontario</p></div></div>
           </div>
         </div>
         <div class="bg-white p-8">
           <form id="contactForm" class="space-y-6" novalidate>
-            <div><label for="name" class="block text-sm font-medium text-gray-800">Full Name</label><input type="text" id="name" required class="mt-1 py-3 px-4 block w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-[color:var(--primary-navy)] focus:border-[color:var(--primary-navy)]" /></div>
-            <div><label for="email" class="block text-sm font-medium text-gray-800">Email</label><input type="email" id="email" required class="mt-1 py-3 px-4 block w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-[color:var(--primary-navy)] focus:border-[color:var(--primary-navy)]" /></div>
-            <div><label for="phone" class="block text-sm font-medium text-gray-800">Phone (optional)</label><input type="tel" id="phone" class="mt-1 py-3 px-4 block w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-[color:var(--primary-navy)] focus:border-[color:var(--primary-navy)]" /></div>
-            <div><label for="service" class="block text-sm font-medium text-gray-800">Service Interested In</label><select id="service" class="mt-1 py-3 px-4 block w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-[color:var(--primary-navy)] focus:border-[color:var(--primary-navy)]"><option>T1 Personal Income Tax</option><option>T2 Corporate Income Tax</option><option>Tax Planning</option><option>Other</option></select></div>
-            <div><label for="message" class="block text-sm font-medium text-gray-800">Message</label><textarea id="message" rows="4" class="mt-1 py-3 px-4 block w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-[color:var(--primary-navy)] focus:border-[color:var(--primary-navy)]"></textarea></div>
-            <div><button type="submit" class="w-full bg-[color:var(--primary-navy)] text-white py-3 px-4 rounded-md shadow-sm text-sm font-medium">Send Message</button></div>
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-800">Full Name</label>
+              <input type="text" id="name" required class="mt-1 py-3 px-4 block w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-[color:var(--primary-navy)] focus:border-[color:var(--primary-navy)]" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-800">Email</label>
+              <input type="email" id="email" required class="mt-1 py-3 px-4 block w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-[color:var(--primary-navy)] focus:border-[color:var(--primary-navy)]" />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-800">Phone (optional)</label>
+              <input type="tel" id="phone" class="mt-1 py-3 px-4 block w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-[color:var(--primary-navy)] focus:border-[color:var(--primary-navy)]" />
+            </div>
+            <div>
+              <label for="service" class="block text-sm font-medium text-gray-800">Service Interested In</label>
+              <select id="service" class="mt-1 py-3 px-4 block w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-[color:var(--primary-navy)] focus:border-[color:var(--primary-navy)]">
+                <option>T1 Personal Income Tax</option>
+                <option>T2 Corporate Income Tax</option>
+                <option>Tax Planning</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-800">Message</label>
+              <textarea id="message" rows="4" required class="mt-1 py-3 px-4 block w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-[color:var(--primary-navy)] focus:border-[color:var(--primary-navy)]"></textarea>
+            </div>
+            <!-- Honeypot to reduce spam -->
+            <input type="text" id="_hp" name="_hp" class="hidden" tabindex="-1" autocomplete="off">
+            <div>
+              <button type="submit" class="w-full bg-[color:var(--primary-navy)] text-white py-3 px-4 rounded-md shadow-sm text-sm font-medium">Send Message</button>
+            </div>
           </form>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer style="background:#101417;">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-gray-300">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -140,7 +190,7 @@
           </div>
           <p class="text-sm">Professional tax services for individuals and businesses in Toronto, Ontario.</p>
           <div class="mt-4 flex space-x-6">
-            <a href="https://www.linkedin.com/company/gao-tax-solutions/" class="hover:text-white" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin text-xl"></i></a>
+            <a href="https://www.linkedin.com/company/gao-tax-solutions/" class="hover:text-white" aria-label="LinkedIn" rel="noopener" target="_blank"><i class="fab fa-linkedin text-xl" aria-hidden="true"></i></a>
           </div>
         </div>
         <div>
@@ -166,6 +216,7 @@
     </div>
   </footer>
 
+  <!-- Success Modal -->
   <div id="successModal" class="fixed inset-0 z-50 hidden overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="flex items-center justify-center min-h-screen p-4 text-center sm:block sm:p-0">
       <div class="fixed inset-0 transition-opacity" aria-hidden="true">
@@ -178,8 +229,12 @@
             <i class="fas fa-check" style="color:var(--accent-red);"></i>
           </div>
           <div class="mt-3 text-center sm:mt-5">
-            <h3 id="modalTitle" class="text-lg leading-6 font-semibold text-[color:var(--text-offblack)]">Message Ready</h3>
-            <p class="mt-2 text-sm text-gray-700">Your email program should have opened a draft. If not, you can email <a class="underline" style="color:var(--primary-navy);" href="mailto:info@gaotaxsolutions.ca">info@gaotaxsolutions.ca</a>.</p>
+            <h3 id="modalTitle" class="text-lg leading-6 font-semibold text-[color:var(--text-offblack)]">Message sent</h3>
+            <p class="mt-2 text-sm text-gray-700">
+              Thanks — your message has been delivered. I’ll reply within 1–2 business days.
+              If you need to follow up, email
+              <a class="underline" style="color:var(--primary-navy);" href="mailto:info@gaotaxsolutions.ca">info@gaotaxsolutions.ca</a>.
+            </p>
           </div>
         </div>
         <div class="mt-5 sm:mt-6">
@@ -189,8 +244,9 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script>
-    // Mobile menu toggle
+    // ===== Mobile menu toggle (safe if elements don't exist)
     const menuBtn = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     if (menuBtn && mobileMenu) {
@@ -198,30 +254,91 @@
         const isHidden = mobileMenu.classList.toggle('hidden');
         menuBtn.setAttribute('aria-expanded', String(!isHidden));
       });
-      document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', ()=>{
-        mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false');
-      }));
+      document.querySelectorAll('#mobile-menu a').forEach(link =>
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        })
+      );
     }
 
-    // Mailto contact form
+    // ===== Contact form (Formspark – no mail client)
     const form = document.getElementById('contactForm');
     const modal = document.getElementById('successModal');
     const modalClose = document.getElementById('modalClose');
+    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+    // Formspark endpoint for GTS – Contact (from your dashboard)
+    const FORMSPARK_URL = "https://submit-form.com/5rV4xNBQ7";
+
+    function setSubmitting(isSubmitting) {
+      if (!submitBtn) return;
+      submitBtn.disabled = isSubmitting;
+      submitBtn.style.opacity = isSubmitting ? '0.8' : '1';
+      submitBtn.textContent = isSubmitting ? 'Sending…' : 'Send Message';
+    }
+
+    function closeModal() {
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Modal close (button, backdrop click, Esc)
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(); // click backdrop
+      });
+    }
+
     if (form) {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        // Guard: endpoint configured?
+        if (!FORMSPARK_URL || FORMSPARK_URL.includes('YOUR_FORM_ID')) {
+          alert('Contact form not configured yet. Please try again later or email info@gaotaxsolutions.ca.');
+          return;
+        }
+
+        // Spam honeypot: if filled, abort silently
+        const hp = (document.getElementById('_hp')?.value || '').trim();
+        if (hp) return;
+
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const phone = (document.getElementById('phone').value || '').trim();
         const service = document.getElementById('service').value;
         const message = document.getElementById('message').value.trim();
-        const subject = encodeURIComponent(`Website enquiry — ${service}`);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nService: ${service}\n\nMessage:\n${message}`);
-        window.location.href = `mailto:info@gaotaxsolutions.ca?subject=${subject}&body=${body}`;
-        setTimeout(()=>{ if (modal) modal.classList.remove('hidden'); form.reset(); }, 400);
+        if (!name || !email || !message) return; // browser required handles UI
+
+        const payload = {
+          name, email, phone, service, message,
+          _email: {
+            subject: `Website enquiry – ${service}`,
+            from: 'Website Contact <no-reply@gaotaxsolutions.ca>'
+          }
+        };
+
+        try {
+          setSubmitting(true);
+          const resp = await fetch(FORMSPARK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!resp.ok) throw new Error('Network error');
+
+          // Success UX
+          form.reset();
+          if (modal) modal.classList.remove('hidden');
+        } catch (err) {
+          alert('Sorry, something went wrong. Please email info@gaotaxsolutions.ca.');
+        } finally {
+          setSubmitting(false);
+        }
       });
     }
-    if (modalClose) modalClose.addEventListener('click', ()=> modal.classList.add('hidden'));
   </script>
 </body>
 </html>
